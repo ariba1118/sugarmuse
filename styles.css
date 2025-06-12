@@ -1,0 +1,117 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Header */
+.vintage-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffd6e0;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 1.5rem;
+}
+
+.vintage-header img.logo {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.vintage-header-text h1 {
+  font-size: 3rem;
+  color: #c2185b;
+  margin: 0;
+}
+
+.vintage-header-text p {
+  font-size: 1.2rem;
+  color: #6d4c41;
+  margin: 0.3rem 0 0;
+}
+
+
+/* Cart Icon */
+#cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#cart-icon img {
+  width: 40px;
+}
+
+#cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+/* Menu Grid */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Dessert Cards */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid #f8cdda;
+}
+
+.card h3 {
+  color: #c2185b;
+  font-size: 1.3rem;
+  margin: 0.8rem 0 0.5rem;
+}
+
+.card p {
+  font-weight: bold;
+  margin: 0.3rem 0 1rem;
+}
+
+/* Buttons */
+.card button {
+  background-color: #ff5c8d;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #e24f7c;
+}

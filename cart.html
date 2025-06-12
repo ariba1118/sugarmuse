@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+   body {
+  background-image: url('bg.img.cart.jpg');
+  background-position: center;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75); /* Light white overlay */
+  z-index: -1;
+}
+
+
+
+    .cart-container {
+      max-width: 600px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .remove-btn {
+      background: #ffbaba;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background: #ff8c8c;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .place-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .place-btn:hover {
+      background: #ff4d4d;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <h2>Your Dessert Cart 🍰</h2>
+    <ul id="cart-list"></ul>
+    <div class="total">Total: ₹<span id="cart-total">0</span></div>
+    <button class="place-btn" onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const cartList = document.getElementById("cart-list");
+    const cartTotal = document.getElementById("cart-total");
+
+    function renderCart() {
+      cartList.innerHTML = "";
+      let total = 0;
+
+      cart.forEach(({ item, price }, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${item} - ₹${price}`;
+
+        const btn = document.createElement("button");
+        btn.className = "remove-btn";
+        btn.textContent = "Remove";
+        btn.onclick = () => {
+          cart.splice(index, 1);
+          localStorage.setItem("cartItems", JSON.stringify(cart));
+          renderCart();
+        };
+
+        li.appendChild(btn);
+        cartList.appendChild(li);
+        total += price;
+      });
+
+      cartTotal.textContent = total;
+    }
+
+    renderCart();
+
+    function placeOrder() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Your delicious order has been placed! 🧁");
+      localStorage.removeItem("cartItems");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

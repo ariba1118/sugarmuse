@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Ariba's Dessert Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ <!-- Cart Icon -->
+<div id="cart-icon">
+  <img src="cart.icon.jpg" alt="Cart">
+  <span id="cart-count">0</span>
+</div>
+
+<!-- Header with Logo + Title -->
+<header class="vintage-header">
+  <img src="SugarMuse.png" alt="" class="logo">
+  <div class="vintage-header-text">
+    <h1>SugarMuse</h1>
+    <p>Freshly Baked | Sweetly Delivered</p>
+  </div>
+</header>
+
+
+  <main>
+    <section class="menu" id="menu">
+      <div class="card">
+        <img src="triple.chocolate.cake.jpg" alt="">
+        <h3>Triple Chocolate Cake</h3>
+        <p>₹300</p>
+        <button onclick="console.log('Adding Triple Chocolate Cake'); addToCart('Triple Chocolate Cake', 300)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="red.velvet.cake.jpg" alt="">
+        <h3>Classic Red Velvet Cake</h3>
+        <p>₹350</p>
+        <button onclick="console.log('Adding Classic Red Velvet Cake'); addToCart('Classic Red Velvet Cake', 350)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="caramel.fudge.brownies.jpg" alt="">
+        <h3>Sea Salt Caramel Fudge Brownies</h3>
+        <p>₹180</p>
+        <button onclick="console.log('Adding Sea Salt Caramel Fudge Brownies'); addToCart('Sea Salt Caramel Fudge Brownie', 180)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="strawberry.cupcakes.jpg" alt="">
+        <h3>Strawberry Cupcake</h3>
+        <p>₹120</p>
+        <button onclick="console.log('Adding Strawberry Cupcake'); addToCart('Strawberry Cupcake', 120)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="blueberry.cheesecake.jpg" alt="">
+        <h3>Blueberry Cheesecake Slice</h3>
+        <p>₹250</p>
+        <button onclick="console.log('Adding Blueberry Cheesecake Slice'); addToCart('Blueberry Cheesecake Slice', 250)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+  <img src="tiramisu.jar.jpg" alt="">
+  <h3>Tiramisu Jar</h3>
+  <p>₹220 (Base Price)</p>
+  <label for="tiramisu-flavor">Choose Your Flavor:</label>
+  <select id="tiramisu-flavor">
+    <option value="Chocolate">Chocolate</option>
+    <option value="Strawberry">Strawberry (+₹25)</option>
+    <option value="Blueberry">Blueberry (+₹35)</option>
+    <option value="Espresso">Espresso (+₹20)</option>
+    <option value="Nutella">Nutella (+₹25)</option>
+    <option value="Caramel">Caramel (+₹15)</option>
+  </select>
+  <button onclick="addCustomTiramisu()">Add to Cart</button>
+</div>
+
+      <div class="card">
+        <img src="oreo.mousse.jpg" alt="">
+        <h3>Oreo Mousse</h3>
+        <p>₹190</p>
+        <button onclick="console.log('Adding Oreo Mousse'); addToCart('Oreo Mousse', 190)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="biscoff.cheesecake.jpg" alt="">
+        <h3>Biscoff Cheesecake</h3>
+        <p>₹280</p>
+        <button onclick="console.log('Adding Biscoff Cheesecake'); addToCart('Biscoff Cheesecake', 280)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="fruit.tarts.jpg" alt="">
+        <h3>Mini Fruit Tart</h3>
+        <p>₹160</p>
+        <button onclick="console.log('Adding Mini Fruit Tart'); addToCart('Mini Fruit Tart', 160)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="banoffe.pie.jpg" alt="">
+        <h3>Banoffee Pie</h3>
+        <p>₹200</p>
+        <button onclick="console.log('Adding Banoffee Pie'); addToCart('Banoffee Pie', 200)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="caramel.mocha.cupcakes.jpg" alt="">
+        <h3>Caramel Mocha Cupcakes</h3>
+        <p> ₹100</p>
+        <button onclick="console.log('Adding Caramel Mocha Cupcakes'); addToCart('Caramel Mocha Cupcakes', 100)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="dark.chocolate.truffles.jpg" alt="">
+        <h3>Dark Chocolate Sea Salt Truffles (4 pc)</h3>
+        <p>₹220</p>
+        <button onclick="console.log('Adding Dark Chocolate Sea Salt Truffle'); addToCart('Dark Chocolate Sea Salt Truffle', 220)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="rasmalai.cake.jpg" alt="">
+        <h3>Rasmalai Fusion Cake</h3>
+        <p>₹320</p>
+        <button onclick="console.log('Adding Rasmalai Fusion Cake'); addToCart('Rasmalai Fusion Cake', 320)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="coffee.cupcakes.jpg" alt="">
+        <h3>Chocolate Coffee Cupcake</h3>
+        <p>₹130</p>
+        <button onclick="console.log('Adding Chocolate Coffee Cupcake'); addToCart('Chocolate Coffee Cupcake', 130)">Add to Cart</button>
+      </div>
+     </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
