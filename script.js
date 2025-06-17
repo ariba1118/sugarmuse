@@ -7,6 +7,11 @@ const flavorPrices = {
   "Caramel": 15
 };
 
+// Placeholder for future features (search, cart, etc.)
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('SugarMuse: script loaded.');
+});
+ 
 // ⬇ Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -31,6 +36,22 @@ function addCustomTiramisu() {
   const finalPrice = basePrice + extra;
   addToCart(`Tiramisu Jar (${flavor})`, finalPrice);
 }
+
+// 🔍 Dessert Search Filter
+function filterDesserts() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const name = card.querySelector("h3").innerText.toLowerCase();
+    if (name.includes(input)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
 
 // 🛒 Update cart icon with total quantity
 function updateCartIcon() {
