@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SugarMuse Dessert Shop</title>
+  <!-- Baloo 2 Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Motion One for Animations -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/@motionone/dom/dist/motion.min.js"></script>
+</head>
+
+<body>
+<!-- Top Info Section -->
+<div class="top-info-bar">
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact Us</a>
+  <a href="#franchise">Franchise Enquiry</a>
+  <a href="#careers">Careers</a>
+</div>
+
+<!-- Cart Icon -->
+<div id="cart-icon">
+  <img src="images/cart.icon.jpg" alt="">
+  <span id="cart-count">0</span>
+</div>
+
+<!-- Header with Logo + Title -->
+<header class="vintage-header">
+  <img src="images/SugarMuse.png" alt="" class="logo">
+  <div class="vintage-header-text">
+    <h1>SugarMuse</h1>
+    <p>Freshly Baked | Sweetly Delivered</p>
+  </div>
+</header>
+
+
+
+  <!-- Search Bar -->
+  <div class="search-bar" style="text-align: center; margin: 1rem;">
+    <input type="text" placeholder="Search desserts..." id="searchInput" oninput="filterDesserts()" style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid #ccc; width: 60%;">
+  </div>
+
+  <main>
+    <section class="menu" id="menu">
+      <div class="card">
+        <img src="images/triple.chocolate.cake.jpg" alt="">
+        <h3>Triple Chocolate Cake</h3>
+        <p>₹300</p>
+        <ul class="ingredients">
+          <li>Dark, milk & white chocolate</li>
+          <li>Flour, cocoa, cream</li>
+        </ul>
+        <button onclick="addToCart('Triple Chocolate Cake', 300)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/red.velvet.cake.jpg" alt="">
+        <h3>Classic Red Velvet Cake</h3>
+        <p>₹350</p>
+        <ul class="ingredients">
+          <li>Buttermilk, cocoa, vanilla</li>
+          <li>Cream cheese frosting</li>
+        </ul>
+        <button onclick="addToCart('Classic Red Velvet Cake', 350)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/caramel.fudge.brownies.jpg" alt="">
+        <h3>Sea Salt Caramel Fudge Brownies</h3>
+        <p>₹180</p>
+        <ul class="ingredients">
+          <li>Fudge brownie base</li>
+          <li>Caramel drizzle, sea salt</li>
+        </ul>
+        <button onclick="addToCart('Sea Salt Caramel Fudge Brownies', 180)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/strawberry.cupcakes.jpg" alt="">
+        <h3>Strawberry Cupcake</h3>
+        <p>₹120</p>
+        <ul class="ingredients">
+          <li>Fresh strawberries</li>
+          <li>Whipped cream, sponge</li>
+        </ul>
+        <button onclick="addToCart('Strawberry Cupcake', 120)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/blueberry.cheesecake.jpg" alt="">
+        <h3>Blueberry Cheesecake Slice</h3>
+        <p>₹250</p>
+        <ul class="ingredients">
+          <li>Blueberry compote</li>
+          <li>Cream cheese, biscuit base</li>
+        </ul>
+        <button onclick="addToCart('Blueberry Cheesecake Slice', 250)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/tiramisu.jar.jpg" alt="">
+        <h3>Tiramisu Jar</h3>
+        <p>₹220 (Base Price)</p>
+        <ul class="ingredients">
+          <li>Ladyfingers, mascarpone</li>
+          <li>Coffee, cocoa dust</li>
+        </ul>
+        <label for="tiramisu-flavor">Choose Your Flavor:</label>
+        <select id="tiramisu-flavor">
+          <option value="Chocolate">Chocolate</option>
+          <option value="Strawberry">Strawberry (+₹25)</option>
+          <option value="Blueberry">Blueberry (+₹35)</option>
+          <option value="Espresso">Espresso (+₹20)</option>
+          <option value="Nutella">Nutella (+₹25)</option>
+          <option value="Caramel">Caramel (+₹15)</option>
+        </select>
+        <button onclick="addCustomTiramisu()">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/oreo.mousse.jpg" alt="">
+        <h3>Oreo Mousse</h3>
+        <p>₹190</p>
+        <ul class="ingredients">
+          <li>Oreo crumble</li>
+          <li>Whipped mousse layers</li>
+        </ul>
+        <button onclick="addToCart('Oreo Mousse', 190)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/biscoff.cheesecake.jpg" alt="">
+        <h3>Biscoff Cheesecake</h3>
+        <p>₹280</p>
+        <ul class="ingredients">
+          <li>Biscoff spread</li>
+          <li>Cream cheese, cookie crust</li>
+        </ul>
+        <button onclick="addToCart('Biscoff Cheesecake', 280)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/fruit.tarts.jpg" alt="">
+        <h3>Mini Fruit Tart</h3>
+        <p>₹160</p>
+        <ul class="ingredients">
+          <li>Fresh fruits</li>
+          <li>Custard, tart base</li>
+        </ul>
+        <button onclick="addToCart('Mini Fruit Tart', 160)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/banoffe.pie.jpg" alt="">
+        <h3>Banoffee Pie</h3>
+        <p>₹200</p>
+        <ul class="ingredients">
+          <li>Banana, caramel</li>
+          <li>Whipped cream, biscuit base</li>
+        </ul>
+        <button onclick="addToCart('Banoffee Pie', 200)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/caramel.mocha.cupcakes.jpg" alt="">
+        <h3>Caramel Mocha Cupcakes</h3>
+        <p>₹100</p>
+        <ul class="ingredients">
+          <li>Coffee sponge</li>
+          <li>Caramel drizzle, chocolate chips</li>
+        </ul>
+        <button onclick="addToCart('Caramel Mocha Cupcakes', 100)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/dark.chocolate.truffles.jpg" alt="">
+        <h3>Dark Chocolate Sea Salt Truffles (4 pc)</h3>
+        <p>₹220</p>
+        <ul class="ingredients">
+          <li>Rich chocolate ganache</li>
+          <li>Sea salt, cocoa powder</li>
+        </ul>
+        <button onclick="addToCart('Dark Chocolate Sea Salt Truffle', 220)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/rasmalai.cake.jpg" alt="">
+        <h3>Rasmalai Fusion Cake</h3>
+        <p>₹320</p>
+        <ul class="ingredients">
+          <li>Cardamom sponge</li>
+          <li>Rasmalai milk & garnish</li>
+        </ul>
+        <button onclick="addToCart('Rasmalai Fusion Cake', 320)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/coffee.cupcakes.jpg" alt="">
+        <h3>Chocolate Coffee Cupcake</h3>
+        <p>₹130</p>
+        <ul class="ingredients">
+          <li>Espresso chocolate sponge</li>
+          <li>Coffee buttercream</li>
+        </ul>
+        <button onclick="addToCart('Chocolate Coffee Cupcake', 130)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/mini.lemon.cheesecakes.jpg" alt="">
+        <h3>Mini Lemon Cheesecake</h3>
+        <p>₹100</p>
+        <ul class="ingredients">
+          <li>Digestive biscuits</li>
+          <li>Cream cheese</li>
+          <li>Lemon curd (lemon juice, zest, sugar, butter)</li>
+          <li>Whipping cream</li>
+          <li>Poppy seeds</li>
+          <li>Butter & Sugar</li>
+          </ul>
+          <button onclick="addToCart('Mini Lemon Cheesecake, 100')">Add to Cart</button>
+      </div>
+
+    </section>
+  </main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-section logo-contact">
+    <img src="images/SugarMuse.png" alt="SugarMuse Logo" class="footer-logo">
+    <div>
+      <p><strong>Telephone:</strong> ‪+91-33-40838688‬ (9AM–9PM)</p>
+      <p><strong>WhatsApp:</strong> 9836034567 (9AM–9PM)</p>
+      <p><strong>Email:</strong> sugarmusecares@support.com</p>
+    </div>
+  </div>
+
+  <div class="footer-section links">
+    <div>
+      <h4>Company</h4>
+      <a href="#">Home</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Blogs</a>
+      <a href="#">About</a>
+      <a href="#">Franchise</a>
+      <a href="#">Careers</a>
+    </div>
+    <div>
+      <h4>Useful Links</h4>
+      <a href="#">Privacy</a>
+      <a href="#">FAQ's</a>
+      <a href="#">Refund & Return</a>
+      <a href="#">Track order</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">CSR</a>
+      <a href="#">Shipping Policy</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="social-icons">
+      <a href="#"><img src="images/social.media.png" alt=""></a>
+    </div>
+    <p>FSSAI Certified</p>
+    <p>&copy; 2025, SugarMuse</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
